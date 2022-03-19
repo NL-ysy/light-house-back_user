@@ -42,12 +42,12 @@ public class PostListService {
         final Optional<PostListEntity> original = repository.findById(entity.getId());
 
         original.ifPresent(postList ->{
-            postList.setId(postList.getId());
-            postList.setUserId(postList.getUserId());
-            postList.setTitle(postList.getTitle());
-            postList.setCategory(postList.getCategory());
-            postList.setCreateDate(postList.getCreateDate());
-            postList.setEditDate(postList.getEditDate());
+            postList.setId(entity.getId());
+            postList.setUserId(entity.getUserId());
+            postList.setTitle(entity.getTitle());
+            postList.setCategory(entity.getCategory());
+            postList.setCreateDate(entity.getCreateDate());
+            postList.setEditDate(entity.getEditDate());
 
             repository.save(postList);
         });
