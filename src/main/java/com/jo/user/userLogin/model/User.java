@@ -32,5 +32,6 @@ public class User {
     private String img; //유저의 프로필 사진
     private int grade; //유저의 등급
     private int point; //유저의 포인트 점수
+    private int check;
 
 }
