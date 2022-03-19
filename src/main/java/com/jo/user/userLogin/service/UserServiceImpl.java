@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService{
                 .img(userDTO.getImg())
                 .grade(userDTO.getGrade())
                 .point(userDTO.getGrade())
+                .check(userDTO.getCheck())
                 .build();
 
         return userRepository.save(user);
