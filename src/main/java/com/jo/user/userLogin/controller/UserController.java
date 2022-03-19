@@ -1,5 +1,4 @@
 package com.jo.user.userLogin.controller;
-
 import com.jo.user.userLogin.dto.ResponseDTO;
 import com.jo.user.userLogin.dto.UserDTO;
 import com.jo.user.userLogin.model.User;
@@ -37,7 +36,6 @@ public class UserController {
                     .img(userDTO.getImg())
                     .grade(userDTO.getGrade())
                     .point(userDTO.getPoint())
-                    .check(userDTO.getCheck())
                     .build();
             //서비스를 이용해 리포지터리에 사용자 저장
             User registeredUser = userService.create(user);
@@ -50,7 +48,6 @@ public class UserController {
                     .img(registeredUser.getImg())
                     .grade(registeredUser.getGrade())
                     .point(registeredUser.getPoint())
-                    .check(registeredUser.getCheck())
                     .build();
             return ResponseEntity.ok().body(responseUserDTO);
         } catch (Exception e) {
@@ -88,7 +85,7 @@ public class UserController {
     //회원 정보 수정
     @PutMapping
     public User useredit(@RequestBody UserDTO userDTO){
-       return userService.update(userDTO);
+        return userService.update(userDTO);
     }
 }
 

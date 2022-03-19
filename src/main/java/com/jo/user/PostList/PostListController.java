@@ -27,9 +27,11 @@ public class PostListController {
             ResponseDTO<PostListDto> response = ResponseDTO.<PostListDto>builder().build();
 
             return ResponseEntity.ok(response);}
+
         catch (Exception e){
             String error = e.getMessage();
             ResponseDTO<PostListDto> response =ResponseDTO.<PostListDto>builder().error(error).build();
+
             return ResponseEntity.badRequest().body(response);}
     }
 
@@ -42,8 +44,7 @@ public class PostListController {
         List<PostListDto> dtos = entities.stream().map(PostListDto::new).collect(Collectors.toList());
         ResponseDTO<PostListDto> response = ResponseDTO.<PostListDto>builder().data(dtos).build();
 
-        return ResponseEntity.ok(response);
-    }
+        return ResponseEntity.ok(response);}
 
     @GetMapping //게시글 조회
     public ResponseEntity<?> retrievePostList(@AuthenticationPrincipal String userId){
@@ -52,8 +53,7 @@ public class PostListController {
         List<PostListDto> dtos = entities.stream().map(PostListDto::new).collect(Collectors.toList());
         ResponseDTO<PostListDto> response = ResponseDTO.<PostListDto>builder().data(dtos).build();
 
-        return ResponseEntity.ok(response);
-    }
+        return ResponseEntity.ok(response);}
 
     @DeleteMapping
     public ResponseEntity<?> deletePostList(@AuthenticationPrincipal String userId,
@@ -65,6 +65,7 @@ public class PostListController {
             ResponseDTO<PostListDto> response = ResponseDTO.<PostListDto>builder().data(dtos).build();
 
             return ResponseEntity.ok(response);}
+
         catch (Exception e){
             String error = e.getMessage();
             ResponseDTO<PostListDto> response = ResponseDTO.<PostListDto>builder().error(error).build();
