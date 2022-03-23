@@ -5,6 +5,7 @@ import com.jo.user.badgeList.BadgeListRepository;
 import com.jo.user.userLogin.dto.UserDTO;
 import com.jo.user.userLogin.model.User;
 import com.jo.user.userLogin.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-@RequiredArgsConstructor
+@AllArgsConstructor
+//@RequiredArgsConstructor
 @Service
 @Repository
 public class UserServiceImpl implements UserService{
@@ -56,6 +58,8 @@ public class UserServiceImpl implements UserService{
 
         return userRepository.save(user);
     }
+
+
 
 //    @Override
 //    public User update(final User user){
