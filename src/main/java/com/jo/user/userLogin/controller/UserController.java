@@ -1,5 +1,5 @@
 package com.jo.user.userLogin.controller;
-
+import com.jo.user.userLogin.config.S3Service;
 import com.jo.user.userLogin.dto.ResponseDTO;
 import com.jo.user.userLogin.dto.UserDTO;
 import com.jo.user.userLogin.model.User;
@@ -11,6 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Slf4j
 @RestController
@@ -21,12 +24,16 @@ public class UserController {
     private UserService userService;
     @Autowired
     private TokenProvider tokenProvider;
+    @Autowired
+    private S3Service s3Service;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    //S3관련 수정한것 3개 에러시 지우기
     //회원가입
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO, MultipartFile file) throws IOException {
+        //S3관련1 위의 MultipartFile file,throws IOException를 추가했다 에러가 뜨면 바로 지워버리면될듯함
         try {
             //요청을 이용해 저장할 사용자 만들기
             User user = User.builder()
@@ -37,10 +44,11 @@ public class UserController {
                     .img(userDTO.getImg())
                     .grade(userDTO.getGrade())
                     .point(userDTO.getPoint())
-                    .check(userDTO.getCheck())
                     .build();
             //서비스를 이용해 리포지터리에 사용자 저장
             User registeredUser = userService.create(user);
+            String img = s3Service.upload(file); //여기도 수정한 부분 S3관련2 에러나면 지워버리기
+
             UserDTO responseUserDTO = UserDTO.builder()
                     .id(registeredUser.getId())
                     .email(registeredUser.getEmail())
@@ -50,8 +58,8 @@ public class UserController {
                     .img(registeredUser.getImg())
                     .grade(registeredUser.getGrade())
                     .point(registeredUser.getPoint())
-                    .check(registeredUser.getCheck())
                     .build();
+            registeredUser.setImg(img); //S3관련3 에러시 지우기, registeredUser인지 userDto인지 헷갈림
             return ResponseEntity.ok().body(responseUserDTO);
         } catch (Exception e) {
             //사용자 정보는 항상 하나이므로 리스트로 만들어야 하는 ResponseDTO를 사용하지 않고 그냥 UserDTO 리턴
@@ -88,7 +96,7 @@ public class UserController {
     //회원 정보 수정
     @PutMapping
     public User useredit(@RequestBody UserDTO userDTO){
-       return userService.update(userDTO);
+        return userService.update(userDTO);
     }
 }
 

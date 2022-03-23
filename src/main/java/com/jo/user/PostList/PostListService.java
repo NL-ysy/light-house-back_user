@@ -20,22 +20,20 @@ public class PostListService {
 
         repository.save(entity);
         log.warn("Entity Id : {} is saved.", entity.getId());
-        return repository.findByUserId(entity.getUserId());
-    }
+        return repository.findByUserId(entity.getUserId());}
 
     private void validate(final PostListEntity entity){
         if (entity == null){
             log.warn("Entitycannot be null");
-            throw new RuntimeException("Entity cannot be null");
-        }
+            throw new RuntimeException("Entity cannot be null");}
+
         if (entity.getUserId() == null){
             log.warn("Unknown user.");
-            throw new RuntimeException("Unknown user.");
-        }
+            throw new RuntimeException("Unknown user.");}
     }
+
     public List<PostListEntity> retrieve(final String userId){
-        return repository.findByUserId(userId);
-    }
+        return repository.findByUserId(userId);}
 
     public List<PostListEntity> update(final PostListEntity entity){
         validate(entity);
@@ -49,10 +47,9 @@ public class PostListService {
             postList.setCreateDate(entity.getCreateDate());
             postList.setEditDate(entity.getEditDate());
 
-            repository.save(postList);
-        });
-        return retrieve(entity.getUserId());
-    }
+            repository.save(postList);});
+
+        return retrieve(entity.getUserId());}
 
     public List<PostListEntity> delete(final PostListEntity entity){
         validate(entity);
@@ -60,5 +57,6 @@ public class PostListService {
         catch (Exception e){
             log.error("error deleting entity", entity.getId(), e);
             throw new RuntimeException("error deleting entity" + entity.getId());}
+
         return retrieve(entity.getUserId());}
 }

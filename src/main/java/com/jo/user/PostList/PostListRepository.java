@@ -7,5 +7,4 @@ import java.util.List;
 
 @Repository
 public interface PostListRepository extends JpaRepository<PostListEntity, String> {
-    List<PostListEntity> findByUserId(String userId);
-}
+    List<PostListEntity> findByUserId(String userId);}

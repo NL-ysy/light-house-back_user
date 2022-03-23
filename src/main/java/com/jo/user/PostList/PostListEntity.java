@@ -18,7 +18,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "PostList")
-public class PostListEntity<T> {
+public class PostListEntity {
 
     @Id
     @GeneratedValue(generator = "system-uuid")
