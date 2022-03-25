@@ -49,17 +49,10 @@ public class UserServiceImpl implements UserService{
                 .id(userDTO.getId())
                 .email(userDTO.getEmail())
                 .password(userDTO.getPassword())
-                .name(userDTO.getName())
-                .phoneNum(userDTO.getPhoneNum())
-                .img(userDTO.getImg())
-                .grade(userDTO.getGrade())
-                .point(userDTO.getGrade())
                 .build();
 
         return userRepository.save(user);
     }
-
-
 }
 
 
