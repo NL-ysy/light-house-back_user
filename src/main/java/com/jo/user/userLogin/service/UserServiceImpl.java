@@ -60,37 +60,6 @@ public class UserServiceImpl implements UserService{
     }
 
 
-
-//    @Override
-//    public User update(final User user){
-//
-//        final Optional<User> original = userRepository.findById(user.getId());
-//
-//        original.ifPresent(useredit ->{
-//            useredit.setId(user.getId());
-//            useredit.setName(user.getName());
-//            useredit.setPassword(user.getPassword());
-//            useredit.setEmail(user.getEmail());
-//            useredit.setPhoneNum(user.getPhoneNum());
-//            useredit.setImg(user.getImg());
-//            useredit.setGrade(user.getGrade());
-//            useredit.setPoint(user.getPoint());
-//
-//            userRepository.save(useredit);
-//        });
-//
-//        return userRepository.save(user);
-//    }
-
-//    @Override
-//    public User pointUpdate(User user, BadgeListEntity badgeList){
-//        badgeListRepository.point(badgeList.getBadgePoint());
-//
-////        userRepository.save(user.setPoint(user.getPoint());
-////        )
-////        return userRepository.save(user);
-//        return userRepository.save(user);
-//    }
 }
 
 
