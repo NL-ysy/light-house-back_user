@@ -8,5 +8,5 @@ public interface UserService{
     User create(User user);
     User getbyCredentials(final String email, final String password, PasswordEncoder passwordEncoder);
     User update(final UserDTO user);
-//    User pointUpdate(User user, BadgeListEntity badgeList);
+
 }
