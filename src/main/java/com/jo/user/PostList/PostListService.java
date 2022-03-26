@@ -42,10 +42,16 @@ public class PostListService {
         original.ifPresent(postList ->{
             postList.setId(entity.getId());
             postList.setUserId(entity.getUserId());
-            postList.setTitle(entity.getTitle());
-            postList.setCategory(entity.getCategory());
-            postList.setCreateDate(entity.getCreateDate());
-            postList.setEditDate(entity.getEditDate());
+            postList.setGoalId(entity.getGoalId());
+            postList.setGoalTitle(entity.getGoalTitle());
+            postList.setStartDay(entity.getStartDay());
+            postList.setEndDay(entity.getEndDay());
+            postList.setWeekCount(entity.getWeekCount());
+            postList.setPeriod(entity.getPeriod());
+            postList.setTotalCount(entity.getTotalCount());
+            postList.setCount(entity.getCount());
+            postList.setDoing(entity.getDoing());
+            postList.setState(entity.getState());
 
             repository.save(postList);});
 

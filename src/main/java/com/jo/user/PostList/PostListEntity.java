@@ -25,9 +25,15 @@ public class PostListEntity {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String userId;
-    private String title;
-    private String category;
-    private Date createDate;
-    private Date editDate;
+    private String goalId;
+    private String goalTitle;
+    private Date startDay;
+    private Date endDay;
+    private int weekCount;
+    private int period;
+    private int totalCount;
+    private int count;
+    private int doing;
+    private int state;
 
 }
