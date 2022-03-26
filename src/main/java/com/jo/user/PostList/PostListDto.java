@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class PostListDto {
     private String userId;
     private String title;
     private String category;
-    private Date createDate;
-    private Date editDate;
+    private LocalDate createDate;
+    private LocalDate editDate;
 
     public PostListDto(final PostListEntity postList){
         this.id = postList.getId();
