@@ -35,5 +35,6 @@ public class PostListEntity {
     private int count;
     private int doing;
     private int state;
+    private int result;
 
 }

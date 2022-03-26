@@ -23,6 +23,7 @@ public class PostListDto {
     private int count;
     private int doing;
     private int state;
+    private int result;
 
     public PostListDto(final PostListEntity postList){
         this.id = postList.getId();
@@ -37,6 +38,7 @@ public class PostListDto {
         this.count = postList.getCount();
         this.doing = postList.getDoing();
         this.state = postList.getState();
+        this.result = postList.getResult();
     }
 
     public static PostListEntity toEntity(final PostListDto postListDto){
@@ -53,5 +55,6 @@ public class PostListDto {
                 .count(postListDto.getCount())
                 .doing(postListDto.getDoing())
                 .state(postListDto.getState())
+                .result(postListDto.getResult())
                 .build();}
 }

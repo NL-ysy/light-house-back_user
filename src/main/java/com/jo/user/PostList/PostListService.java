@@ -52,6 +52,7 @@ public class PostListService {
             postList.setCount(entity.getCount());
             postList.setDoing(entity.getDoing());
             postList.setState(entity.getState());
+            postList.setResult(entity.getResult());
 
             repository.save(postList);});
 
