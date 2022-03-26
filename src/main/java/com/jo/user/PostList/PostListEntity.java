@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 @Builder
 @NoArgsConstructor
@@ -26,7 +27,7 @@ public class PostListEntity {
     private String userId;
     private String title;
     private String category;
-    private Date createDate;
-    private Date editDate;
+    private LocalDate createDate;
+    private LocalDate editDate;
 
 }

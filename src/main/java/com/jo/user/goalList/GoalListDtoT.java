@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class GoalListDtoT {
     private String userId;
     private String goalId;
     private String goalTitle;
-    private Date startDay;
-    private Date endDay;
+    private LocalDate startDay;
+    private LocalDate endDay;
     private int weekCount;
     private int period;
     private int totalCount;

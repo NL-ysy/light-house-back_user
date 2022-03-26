@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Builder
@@ -27,8 +28,8 @@ public class GoalListEntity {
     private String userId;
     private String goalId;
     private String goalTitle;
-    private Date startDay;
-    private Date endDay;
+    private LocalDate startDay;
+    private LocalDate endDay;
     private int weekCount;
     private int period;
     private int totalCount;
