@@ -25,13 +25,15 @@ public class GoalListEntity {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String userId;
+    private String goalId;
     private String goalTitle;
-    private String goalDesc;
     private Date startDay;
     private Date endDay;
     private int weekCount;
+    private int period;
     private int totalCount;
     private int count;
     private int doing;
     private int state;
+    private int result;
 }

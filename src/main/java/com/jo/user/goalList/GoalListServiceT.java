@@ -56,16 +56,19 @@ public class GoalListServiceT {
 
         original.ifPresent(goalList -> {
             // (3) 반환된 TodoEntity가 존재하면 값을 새 entity의 값으로 덮어 씌운다.
+            goalList.setId(entity.getId());
+            goalList.setUserId(entity.getUserId());
+            goalList.setGoalId(entity.getGoalId());
             goalList.setGoalTitle(entity.getGoalTitle());
-            goalList.setGoalDesc(entity.getGoalDesc());
             goalList.setStartDay(entity.getStartDay());
             goalList.setEndDay(entity.getEndDay());
             goalList.setWeekCount(entity.getWeekCount());
+            goalList.setPeriod(entity.getPeriod());
             goalList.setTotalCount(entity.getTotalCount());
-            goalList.setCount(entity.getCount());
             goalList.setCount(entity.getCount());
             goalList.setDoing(entity.getDoing());
             goalList.setState(entity.getState());
+            goalList.setResult(entity.getResult());
 
             repositoryT.save(goalList);
         });
