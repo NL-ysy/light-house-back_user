@@ -1,6 +1,6 @@
 package com.jo.user.userImg;
 
-import com.jo.user.userLogin.config.S3Service;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,7 +30,6 @@ public class UserImgService {
     private UserImgDto convertEntityToDto(UserImg userImg) {
         return UserImgDto.builder()
                 .id(userImg.getId())
-
                 .url(userImg.getUrl())
                 .imgFullPath("https://" + s3Service.CLOUD_FRONT_DOMAIN_NAME + "/" + userImg.getUrl()) //url 주소 변형 cloud front 주소로 변경할것
                 .build();

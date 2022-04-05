@@ -1,7 +1,6 @@
 package com.jo.user.userImg;
 
 
-import com.jo.user.userLogin.config.S3Service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

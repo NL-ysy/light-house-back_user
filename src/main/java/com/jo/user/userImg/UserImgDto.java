@@ -10,7 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class UserImgDto {
     private Long id;
-    private String userProfile;
+//    private String userProfile;
     private String url;
     private String imgFullPath;
 

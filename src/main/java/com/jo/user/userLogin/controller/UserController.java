@@ -1,5 +1,6 @@
 package com.jo.user.userLogin.controller;
-import com.jo.user.userLogin.config.S3Service;
+
+import com.jo.user.userImg.S3Service;
 import com.jo.user.userLogin.dto.ResponseDTO;
 import com.jo.user.userLogin.dto.UserDTO;
 import com.jo.user.userLogin.model.User;
